@@ -1,0 +1,30 @@
+\usepackage{verbatim}
+
+% https://docs.overleaf.com/writing-and-editing/using-word-count#run-texcount-with-custom-parameters
+% add to preamble
+\newcommand{\detailtexcount}[1]{%
+  \immediate\write18{texcount -merge -sum -q #1.tex output.bbl > #1.wcdetail }%
+  \verbatiminput{#1.wcdetail}%
+}
+
+\newcommand{\quickwordcount}[1]{%
+  \immediate\write18{texcount -1 -sum -merge -q #1.tex output.bbl > #1-words.sum }%
+  \input{#1-words.sum} words%
+}
+
+\newcommand{\quickcharcount}[1]{%
+  \immediate\write18{texcount -1 -sum -merge -char -q #1.tex output.bbl > #1-chars.sum }%
+  \input{#1-chars.sum} characters (not including spaces)%
+}
+
+% in text
+% Don't count these!
+%TC:ignore
+
+\bibliography{references}
+\bibliographystyle{abbrv}
+
+\quickwordcount{<file_name>}
+\quickcharcount{<file_name>}
+\detailtexcount{<file_name>}
+%TC:endignore
