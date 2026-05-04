@@ -1,0 +1,35 @@
+\usepackage{xspace}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{tcolorbox}
+
+
+\newcommand{\todo}[1]{{\color{red}\bfseries [[TODO: #1]]}}
+
+\newcommand{\tool}{\textcolor{blue}{\texttt{cool\_tool}}\xspace}
+
+\newcommand{\approach}{\textcolor{blue}{\textit{approach}}\xspace}
+
+\newcommand{\ie}{\textit{i.e.,}\xspace}
+
+\newcommand{\eg}{\textit{e.g.,}\xspace}
+
+\newcommand{\etal}{\textit{et al.}\xspace}
+
+\newcommand{\problem}[2]{%
+  \begin{tcolorbox}[boxsep=0pt,left=2mm,right=2mm,top=1mm,bottom=1mm]
+    \textbf{#1}
+  \end{tcolorbox} \vspace{-5pt}
+}
+
+\newtcolorbox{keyfindingbox}{
+  colback=gray!5,        % light gray background for body
+  colframe=gray!50,      % thin gray border
+  colbacktitle=gray!60,  % darker gray header
+  coltitle=white,        % white title text
+  fonttitle=\bfseries,   % bold title font
+  title=Key Finding,     % default title text
+  boxrule=0.5pt,         % border line width
+  arc=3pt,               % rounded corners
+  top=6pt, bottom=6pt, left=8pt, right=8pt % inner padding
+}
